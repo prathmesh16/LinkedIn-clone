@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { setIsloading } from './features/loadingSlice'
 import { login } from './features/userSlice'
-import { auth } from './firebase'
+import { auth, db } from './firebase'
 import './Login.css'
 
 function Login() {
@@ -18,7 +19,7 @@ function Login() {
         if(!name) {
             return alert("Please enter Full name!");
         }
-
+        dispatch(setIsloading(true))
         auth.createUserWithEmailAndPassword(email, password)
         .then((userAuth) => {
             userAuth.user.updateProfile({
@@ -26,12 +27,18 @@ function Login() {
                 photoURL: profilePic,
             })
             .then(() => {
+                db.collection("users").doc(userAuth.user.uid).set({
+                    email: userAuth.user.email,
+                    name: name,
+                    photoURL: profilePic
+                })
                 dispatch(login({
                     email: userAuth.user.email,
                     uid: userAuth.user.uid,
                     displayName: name,
                     photoUrl: profilePic
                 }))
+                dispatch(setIsloading(false))
             })
         }).catch((error) => {
             alert(error.message)
@@ -40,7 +47,8 @@ function Login() {
 
     const loginToApp = (e) => {
         e.preventDefault();
-
+        
+        dispatch(setIsloading(true))
         auth.signInWithEmailAndPassword(email, password)
         .then(userAuth => {
             dispatch(login({
@@ -49,7 +57,8 @@ function Login() {
                 displayName: userAuth.user.displayName,
                 profileUrl: userAuth.user.photoURL
             }))
-        }).catch(error => alert(error))
+            dispatch(setIsloading(false))
+        }).catch(error =>{ alert(error); dispatch(setIsloading(false))})
     }
 
     return (

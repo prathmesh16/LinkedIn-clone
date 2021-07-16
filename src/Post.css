@@ -21,6 +21,7 @@
 
 .post__body {
     overflow-wrap: anywhere;
+    margin-left: 50px;
 }
 
 .post__info > h2 {
@@ -30,4 +31,23 @@
 .post__buttons {
     display: flex;
     justify-content: space-evenly;
+}
+
+.post__likeNumber {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    font-size: 15px;
+    color: gray;
+}
+
+.post__likesTop {
+    margin-top: 20px;
+    border-bottom: 0.1px solid lightgray;
+}
+
+.post__likesBottom {
+    margin-left: 5%;
+    width: 90%;
+    border-bottom: 0.1px solid lightgray;
 }

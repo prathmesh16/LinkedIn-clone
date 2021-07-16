@@ -1,0 +1,28 @@
+.tag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color:gray;
+}
+
+.tag:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.tag__left {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.tag__title {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.tag__right {
+    display: flex;
+    margin-right: 5px;
+}

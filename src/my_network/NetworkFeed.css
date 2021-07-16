@@ -1,0 +1,59 @@
+.networkFeed {
+    flex:0.7;
+    margin: 0 20px;
+}
+
+.networkFeed__invitations {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    border: 0.1px solid lightgray;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.networkFeed__manage {
+    padding: 5px;
+    cursor: pointer;
+    color: gray;
+    font-weight: bold;
+}
+.networkFeed__manage:hover {
+    background-color: whitesmoke;
+}
+
+.networkFeed__people {
+    
+    background-color: white;
+    border-radius: 10px;
+    border: 0.1px solid lightgray;
+    margin-top: 15px;
+}
+
+.networkFeed__peopleTop {
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    padding: 15px;
+}
+
+.networkFeed__seeAll {
+    padding: 5px;
+    cursor: pointer;
+    color: gray;
+    font-weight: bold;
+}
+
+.networkFeed__seeAll:hover {
+    background-color: whitesmoke;
+}
+
+.networkFeed__peopleCards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 5px;
+}

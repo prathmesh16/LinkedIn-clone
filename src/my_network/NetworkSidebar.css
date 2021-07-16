@@ -1,0 +1,19 @@
+.network__sidebar {
+    position: sticky;
+    top: 80px;
+    flex: 0.3;
+    border-radius: 10px;
+    text-align: center;
+    height: fit-content;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border: 1px solid lightgray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: white;
+}
+
+.network__sidebar > p {
+    text-align: left;
+    margin: 15px;
+}

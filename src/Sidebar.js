@@ -32,11 +32,11 @@ function Sidebar() {
 
             <div className="sidebar__stats">
                 <div className="sidebar__stat">
-                    <p>Who viewed you</p>
+                    <p>Who viewed your profile</p>
                     <p className="sidebar__statNumber">{random()}</p>
                 </div>
                 <div className="sidebar__stat">
-                    <p>Views on post</p>
+                    <p>Views of your post</p>
                     <p className="sidebar__statNumber">{random()}</p>
                 </div>
             </div>
