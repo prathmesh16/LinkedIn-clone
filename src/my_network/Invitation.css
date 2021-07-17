@@ -1,0 +1,60 @@
+.invitation {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.invitation__left {
+    display: flex;
+    align-items: center;
+}
+
+.invitation__nameTitle {
+    margin-left: 20px;
+}
+
+.invitation__name {
+    font-weight: bold;
+}
+
+.invitation__title {
+    color: gray;
+    font-size: 15px;
+}
+
+.invitation__mutuals {
+    margin-top: 10px;
+    color:gray;
+    font-size: 12px;
+}
+
+.acceptButton {
+    border:none;
+    height: 40px;
+    width: 80px;
+    background-color: #0077b5;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.acceptButton:hover {
+    cursor: pointer;
+    background-color: #015d8f;
+}
+
+.ignoreButton {
+    margin-left: 10px;
+    border:none;
+    height: 40px;
+    width: 80px;
+    background-color: white;
+    color: gray;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.ignoreButton:hover {
+    cursor: pointer;
+}

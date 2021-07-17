@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { setIndicator } from './features/indicatorSlice'
 import { setIsloading } from './features/loadingSlice'
 import { login } from './features/userSlice'
 import { auth, db } from './firebase'
@@ -14,6 +16,7 @@ function Login() {
     const [profilePic, setProfilePic] = useState("")
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const registerToApp = () => {
         if(!name) {
@@ -39,6 +42,8 @@ function Login() {
                     photoUrl: profilePic
                 }))
                 dispatch(setIsloading(false))
+                history.push('/home')
+                dispatch(setIndicator("Home"))
             })
         }).catch((error) => {
             alert(error.message)
@@ -58,6 +63,8 @@ function Login() {
                 profileUrl: userAuth.user.photoURL
             }))
             dispatch(setIsloading(false))
+            history.push('/home')
+            dispatch(setIndicator("Home"))
         }).catch(error =>{ alert(error); dispatch(setIsloading(false))})
     }
 

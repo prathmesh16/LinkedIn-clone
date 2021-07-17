@@ -10,7 +10,14 @@ import Home from './home/Home';
 import Loading from './Loading';
 import Login from './Login';
 import MyNetwork from './my_network/MyNetwork';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory
+} from "react-router-dom";
+import { setIndicator } from './features/indicatorSlice';
 
 function App() {
 
@@ -29,6 +36,7 @@ function App() {
           displayName: userAuth.displayName,
           photoUrl: userAuth.photoURL
         }))
+        dispatch(setIndicator("Home"));
       }
       else {
         dispatch(logout());
@@ -39,16 +47,22 @@ function App() {
 
   return (
     <div className="app">
+      <Router>
       <Header/>
 
       {loading ? <Loading /> : !user ? (
         <Login/>
       ) : (
         <div className="app__body">
-          <Home />
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/home" component={Home}/>
+            <Route path="/mynetwork" component={MyNetwork}/>
+          </Switch>
         </div>
       )}
-    </div>
+      </Router>
+    </div>  
   );
 }
 
